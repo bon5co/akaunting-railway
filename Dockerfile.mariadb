@@ -1,0 +1,10 @@
+# MariaDB for the Akaunting template.
+#
+# The database name and user are baked so the deploy form asks for neither;
+# only the two passwords remain, and both are Railway ${{secret()}} expressions
+# that survive templateGenerate.
+FROM mariadb:11.8.2@sha256:2bcbaec92bd9d4f6591bc8103d3a8e6d0512ee2235506e47a2e129d190444405
+
+ENV MARIADB_USER=akaunting \
+    MARIADB_DATABASE=akaunting \
+    TZ=Etc/UTC
