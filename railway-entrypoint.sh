@@ -35,9 +35,17 @@ mkdir -p \
     "$APP/bootstrap/cache" \
     "$APP/modules"
 
-# Static readiness file, served from both possible document roots.
+# Static readiness file, served from both possible document roots. Railway
+# rejects a healthcheckPath with a file extension, so it is also aliased to the
+# extensionless /healthz that the template publishes.
 printf 'ok\n' > "$APP/healthz.html"
 [ -d "$APP/public" ] && printf 'ok\n' > "$APP/public/healthz.html"
+cat > /etc/apache2/conf-enabled/railway-healthz.conf <<'CONF'
+Alias /healthz /var/www/html/healthz.html
+<Files "healthz.html">
+    Require all granted
+</Files>
+CONF
 
 a2dismod mpm_event mpm_worker >/dev/null 2>&1 || true
 a2enmod mpm_prefork rewrite >/dev/null 2>&1 || true
