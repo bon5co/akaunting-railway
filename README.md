@@ -1,5 +1,9 @@
 # akaunting-railway
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/akaunting-or-just-updated-quickbooks-alt?referralCode=Z1xivh&utm_medium=integration&utm_source=template&utm_campaign=generic)
+
+**Deploy on Railway:** [Akaunting template](https://railway.com/deploy/akaunting-or-just-updated-quickbooks-alt?referralCode=Z1xivh&utm_medium=integration&utm_source=template&utm_campaign=generic)
+
 Railway wrapper images for [Akaunting](https://github.com/akaunting/akaunting) 3.1.21.
 
 * `ghcr.io/bon5co/akaunting-railway:3.1.21` — the official `-v` image plus a Railway entrypoint:
